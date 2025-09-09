@@ -7,6 +7,7 @@ export class Verificaremails {
     version: 1,
     description: 'Verify email addresses using Verificaremails API',
     defaults: { name: 'Verificaremails' },
+	icon: 'file:verificaremails.svg',
     inputs: ['main'],
     outputs: ['main'],
     credentials: [{ name: 'verificaremailsApi', required: true }],
