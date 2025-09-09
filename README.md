@@ -4,75 +4,62 @@ This is a **custom n8n node** that allows you to verify email addresses using th
 
 It performs a **single email validation** request and returns the result status (e.g. `ok_for_all`, `invalid`, etc.).
 
-<<<<<<< HEAD
-=======
----
-
-## 📦 Features
-
-- Validates one email per execution.
-- Uses VerificarEmails' real-time API via simple GET request.
-- Secure API key configuration via n8n credentials.
-- Lightweight and easy to install in any self-hosted n8n instance.
-
 ---
 
 ## 🚀 Installation (Self-hosted n8n)
 
-1. Download or clone this repository:
+### 1. 📥 Clone this repository
 
 ```bash
 git clone https://github.com/apousb/Verificaremails_n8n_email.git
+cd Verificaremails_n8n_email
 ```
 
-2. Go into the directory and install dependencies:
+### 2. 📦 Install dependencies and build
 
 ```bash
-cd email-validation-node-n8n
 npm install
 npm run build
 ```
 
-3. Link the custom node into your n8n instance:
+### 3. 🔗 Link the node globally
 
 ```bash
 npm link
+```
+
+### 4. 🔗 Link it into your n8n instance
+
+```bash
 cd /path/to/your/n8n
 npm link @verificaremails/email-validation-node
 ```
 
-4. Restart n8n:
+### 5. 🔄 Restart your n8n instance
 
+#### Using PM2:
 ```bash
 pm2 restart n8n
-# OR
-docker restart n8n
 ```
 
-The node should now appear inside the **"Nodes from External Modules"** section in the n8n UI.
+#### Using Docker:
+```bash
+docker restart <your-n8n-container-name>
+```
 
 ---
 
-## 🔐 Credentials
+## 🔐 Setup Credentials
 
-Before using the node, set up the **Verificaremails API** credential inside n8n:
-
-1. Go to **Credentials → Create new**
-2. Choose **"Verificaremails API"**
-3. Paste your `auth-token` from [https://dashboard.verificaremails.com/](https://dashboard.verificaremails.com/)
-4. Save and use it in your node configuration
+1. Go to **Credentials** in n8n
+2. Create new → Select **Verificaremails API**
+3. Enter your `auth-token` from:
+   [https://dashboard.verificaremails.com](https://dashboard.verificaremails.com)
+4. Save and assign it to the node
 
 ---
 
-## 🧪 Example Use
-
-### Node Input:
-
-| Parameter | Value               |
-|----------:|---------------------|
-| Email     | `name@example.com` |
-
-### Node Output:
+## 🧪 Node Output Example
 
 ```json
 {
@@ -87,23 +74,19 @@ Before using the node, set up the **Verificaremails API** credential inside n8n:
 
 ## 📘 API Reference
 
-This node uses the endpoint:
+**GET**  
+`https://dashboard.verificaremails.com/myapi/email/validate/single?auth-token=...&term=email@example.com`
 
-```
-GET https://dashboard.verificaremails.com/myapi/email/validate/single
-```
-
-Documentation: [https://www.verificaremails.com/docs/](https://www.verificaremails.com/docs/)
+More info at: [https://www.verificaremails.com/docs/](https://www.verificaremails.com/docs/)
 
 ---
 
 ## 🙌 Credits
 
-Built by [VerificarEmails.com](https://www.verificaremails.com/) — the all-in-one platform to validate emails, phones, names, and addresses.
+Made by [VerificarEmails.com](https://www.verificaremails.com) — the all-in-one platform to verify emails, phones, names, and postal addresses.
 
 ---
 
->>>>>>> 4676934182d59bcf0dd5fc9924868e0f6b1d37b7
 ## 📄 License
 
 MIT

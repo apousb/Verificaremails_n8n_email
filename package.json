@@ -1,15 +1,35 @@
 {
   "name": "@verificaremails/email-validation-node",
   "version": "1.0.0",
-  "description": "n8n custom node to validate emails via VerificarEmails API",
+  "description": "n8n community node to validate emails using VerificarEmails.com API",
+  "author": {
+    "name": "Antxon Pous",
+    "email": "info@verificaremails.com",
+    "url": "https://www.verificaremails.com"
+  },
+  "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build"
   },
-  "author": "VerificarEmails.com",
-  "license": "MIT",
+  "keywords": [
+    "n8n",
+    "email",
+    "validation",
+    "verificaremails",
+    "node",
+    "community-node"
+  ],
+  "homepage": "https://github.com/apousb/Verificaremails_n8n_email#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apousb/Verificaremails_n8n_email.git"
+  },
+  "bugs": {
+    "url": "https://github.com/apousb/Verificaremails_n8n_email/issues"
+  },
   "devDependencies": {
     "typescript": "^5.2.2",
     "@types/node": "^20.5.7"
