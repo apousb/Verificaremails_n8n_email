@@ -1,4 +1,4 @@
-import { OptionsWithUri } from 'request';
+import type { OptionsWithUri } from 'request-promise-native';
 
 export async function verificaremailsApiRequest(
 	method: string,
@@ -18,7 +18,7 @@ export async function verificaremailsApiRequest(
 		// @ts-ignore
 		const response = await this.helpers.request(options);
 		return response;
-	} catch (error) {
+	} catch (error: any) {
 		throw new Error(`Verificaremails API request failed: ${error.message}`);
 	}
 }

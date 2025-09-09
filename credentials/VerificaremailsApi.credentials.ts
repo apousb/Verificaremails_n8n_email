@@ -1,4 +1,4 @@
-import {
+import type {
 	ICredentialType,
 	NodePropertyTypes,
 } from 'n8n-workflow';
