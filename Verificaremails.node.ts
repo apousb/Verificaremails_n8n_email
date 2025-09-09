@@ -18,8 +18,16 @@ export class Verificaremails implements INodeType {
 		defaults: {
 			name: 'Verificaremails',
 		},
-		inputs: ['main'],
-		outputs: ['main'],
+		inputs: [
+			{
+				name: 'main',
+			},
+		],
+		outputs: [
+			{
+				name: 'main',
+			},
+		],
 		credentials: [
 			{
 				name: 'verificaremailsApi',
