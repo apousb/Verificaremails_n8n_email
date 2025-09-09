@@ -1,11 +1,9 @@
-import type { OptionsWithUri } from 'request-promise-native';
-
 export async function verificaremailsApiRequest(
 	method: string,
 	term: string,
 	apiKey: string,
 ): Promise<any> {
-	const options: OptionsWithUri = {
+	const options = {
 		headers: {
 			'Accept': 'application/json',
 		},

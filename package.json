@@ -30,10 +30,8 @@
   "bugs": {
     "url": "https://github.com/apousb/Verificaremails_n8n_email/issues"
   },
-  "dependencies": {
-    "request-promise-native": "^1.0.9"
-  },
   "devDependencies": {
+    "n8n-workflow": "^1.0.0",
     "typescript": "^5.2.2",
     "@types/node": "^20.5.7"
   },
