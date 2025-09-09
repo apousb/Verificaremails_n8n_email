@@ -31,9 +31,9 @@
     "url": "https://github.com/apousb/Verificaremails_n8n_email/issues"
   },
   "devDependencies": {
-    "n8n-workflow": "^1.0.0",
     "typescript": "^5.2.2",
-    "@types/node": "^20.5.7"
+    "@types/node": "^20.5.7",
+    "n8n-workflow": "1.9.3"
   },
   "n8n": {
     "nodes": [
