@@ -20,7 +20,7 @@ It performs a **single email validation** request and returns the result status 
 1. Download or clone this repository:
 
 ```bash
-git clone https://github.com/verificaremails/email-validation-node-n8n.git
+git clone https://github.com/apousb/Verificaremails_n8n_email.git
 ```
 
 2. Go into the directory and install dependencies:
