@@ -2,7 +2,7 @@ export class Verificaremails {
   description = {
     displayName: 'Verificaremails',
     name: 'verificaremails',
-    icon: 'file:assets/verificaremails.svg',
+    icon: 'file:verificaremails.svg',
     group: ['transform'],
     version: 1,
     description: 'Verify email addresses using Verificaremails API',
