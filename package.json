@@ -1,22 +1,25 @@
 {
   "name": "@verificaremails/email-validation-node",
   "version": "1.0.1",
-  "description": "n8n community node to validate emails using VerificarEmails.com API",
+  "description": "n8n community node to validate emails or phones using VerificarEmails.com API",
   "author": {
     "name": "Antxon Pous",
-    "email": "info@verificaremails.com",
+    "email": "antxon.pous@verificaremails.com",
     "url": "https://www.verificaremails.com"
   },
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "clean": "rimraf dist",
+    "build": "tsc -p tsconfig.json",
+    "postbuild": "mkdir -p dist/nodes/Verificaremails && (curl -fsSL https://www.verificaremails.com/docs/verificaremails.svg -o dist/nodes/Verificaremails/verificaremails.svg || cp -f verificaremails.svg dist/nodes/Verificaremails/verificaremails.svg || true)",
     "prepare": "npm run build"
   },
   "keywords": [
     "n8n",
     "email",
+    "phone",
     "validation",
     "verificaremails",
     "node",
@@ -31,14 +34,36 @@
     "url": "https://github.com/apousb/Verificaremails_n8n_email/issues"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "@types/node": "^20.5.7"
+    "@types/node": "^20.5.7",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.2.2"
   },
+  "peerDependencies": {
+    "n8n-core": ">=1.0.0",
+    "n8n-workflow": ">=1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "n8n-core": { "optional": true },
+    "n8n-workflow": { "optional": true }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist/**",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
   "n8n": {
+    "credentials": [
+      {
+        "file": "dist/credentials/VerificaremailsApi.credentials.js"
+      }
+    ],
     "nodes": [
       {
-        "type": "node",
-        "sourcePath": "Verificaremails.node.ts"
+        "file": "dist/Verificaremails.node.js"
       }
     ]
   }
