@@ -1,25 +1,40 @@
+export type VerificarService =
+  | 'email'
+  | 'phone_hlr'
+  | 'name'
+  | 'address'
+  | 'phone_mnp'
+  | 'phone_syntactic';
+
 export async function verificaremailsApiRequest(
-	method: string,
-	term: string,
-	apiKey: string,
-	service: 'EmailVerification' | 'PhoneVerification',
+  method: string,
+  term: string,
+  apiKey: string,
+  service: VerificarService,
 ): Promise<any> {
-	const endpoint = service === 'PhoneVerification'
-		? 'phone/validate/single'
-		: 'email/validate/single';
+  const endpointMap: Record<VerificarService, string> = {
+    email: 'email/validate/single',
+    phone_hlr: 'phone/validate/single',
+    name: 'name/validate/single',
+    address: 'address/validate/single',
+    phone_mnp: 'phonemnp/validate/single',
+    phone_syntactic: 'phonesyntactic/validate/single',
+  };
 
-	const options = {
-		headers: { 'Accept': 'application/json' },
-		method,
-		uri: `https://dashboard.verificaremails.com/myapi/${endpoint}?auth-token=${apiKey}&term=${encodeURIComponent(term)}`,
-		json: true,
-	};
+  const endpoint = endpointMap[service];
 
-	try {
-		// @ts-ignore
-		const response = await this.helpers.request(options);
-		return response;
-	} catch (error: any) {
-		throw new Error(`Verificaremails API request failed: ${error.message}`);
-	}
+  const options = {
+    headers: { 'Accept': 'application/json' },
+    method,
+    uri: `https://dashboard.verificaremails.com/myapi/${endpoint}?auth-token=${apiKey}&term=${encodeURIComponent(term)}`,
+    json: true,
+  };
+
+  try {
+    // @ts-ignore - n8n provides helpers at runtime
+    const response = await this.helpers.request(options);
+    return response;
+  } catch (error: any) {
+    throw new Error(`Verificaremails API request failed: ${error?.message || error}`);
+  }
 }
