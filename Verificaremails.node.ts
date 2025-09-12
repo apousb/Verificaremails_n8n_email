@@ -22,9 +22,8 @@ export class Verificaremails {
           { name: 'Phone validation - HLR Lookup', value: 'phone_hlr' },
           { name: 'Phone validation - MNP', value: 'phone_mnp' },
           { name: 'Phone validation - Syntactic', value: 'phone_syntactic' },
-          { name: 'Name/Surname/Gender validation', value: 'name' },
           { name: 'Postal Address validation', value: 'address' },
-
+          { name: 'Name/Surname/Gender validation', value: 'name' },
         ],
         default: 'email',
         description: 'Select which verification service to use',
