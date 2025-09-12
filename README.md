@@ -18,13 +18,12 @@ npm link
 
 # Link into your n8n installation
 cd /path/to/your/n8n
-npm link @verificaremails/email-validation-node
+npm link n8n-nodes-verificaremails-email
 
 # Restart n8n
 pm2 restart n8n   # or: docker restart <n8n-container>
 ```
 
-### In n8n UI
-- Add node **Verificaremails** (Nodes from External Modules)
-- Create credentials **Verificaremails API** and paste your `auth-token`
-- Run the workflow
+## Install
+
+In n8n → **Settings → Community Nodes → Install**:

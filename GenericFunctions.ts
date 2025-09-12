@@ -2,13 +2,16 @@ export async function verificaremailsApiRequest(
 	method: string,
 	term: string,
 	apiKey: string,
+	service: 'EmailVerification' | 'PhoneVerification',
 ): Promise<any> {
+	const endpoint = service === 'PhoneVerification'
+		? 'phone/validate/single'
+		: 'email/validate/single';
+
 	const options = {
-		headers: {
-			'Accept': 'application/json',
-		},
+		headers: { 'Accept': 'application/json' },
 		method,
-		uri: `https://dashboard.verificaremails.com/myapi/email/validate/single?auth-token=${apiKey}&term=${encodeURIComponent(term)}`,
+		uri: `https://dashboard.verificaremails.com/myapi/${endpoint}?auth-token=${apiKey}&term=${encodeURIComponent(term)}`,
 		json: true,
 	};
 
