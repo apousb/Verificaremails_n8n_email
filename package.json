@@ -13,7 +13,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc -p tsconfig.json",
-    "postbuild": "mkdir -p dist/nodes/Verificaremails && (curl -fsSL https://www.verificaremails.com/docs/verificaremails.svg -o dist/nodes/Verificaremails/verificaremails.svg || cp -f verificaremails.svg dist/nodes/Verificaremails/verificaremails.svg || cp -f assets/verificaremails.svg dist/nodes/Verificaremails/verificaremails.svg || true)",
+    "postbuild": "mkdir -p dist/nodes/Verificaremails && (cp -f verificaremails.svg dist/nodes/Verificaremails/verificaremails.svg || cp -f assets/verificaremails.svg dist/nodes/Verificaremails/verificaremails.svg || true)",
     "prepare": "npm run build"
   },
   "keywords": [

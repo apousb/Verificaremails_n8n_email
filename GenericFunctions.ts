@@ -10,7 +10,7 @@ export type VerificarService =
 
 export async function verificaremailsApiRequest(
   method: string,
-  term: string,
+  term: string | Record<string, any>,
   apiKey: string,
   service: VerificarService,
 ): Promise<any> {
@@ -30,7 +30,7 @@ export async function verificaremailsApiRequest(
   const options = {
     headers: { Accept: 'application/json' },
     method,
-    uri: `https://dashboard.verificaremails.com/myapi/${endpoint}?auth-token=${apiKey}&term=${encodeURIComponent(term)}`,
+    uri: `https://dashboard.verificaremails.com/myapi/${endpoint}?auth-token=${apiKey}&term=${encodeURIComponent(typeof term === 'string' ? term : JSON.stringify(term))}`,
     json: true,
   };
 
