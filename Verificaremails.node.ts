@@ -24,6 +24,9 @@ export class Verificaremails {
           { name: 'Phone validation - Syntactic', value: 'phone_syntactic' },
           { name: 'Postal Address validation', value: 'address' },
           { name: 'Name/Surname/Gender validation', value: 'name' },
+          { name: 'Name/Surname correction', value: 'name_correction' },
+          { name: 'Name/surname autocomplete', value: 'name_autocomplete' },
+
         ],
         default: 'email',
         description: 'Select which verification service to use',
@@ -90,6 +93,28 @@ export class Verificaremails {
         description: 'Validate and correct postal addresses to provide a standardized format.',
         displayOptions: { show: { service: ['address'] } },
       },
+      // Name correction
+      {
+        displayName: 'Name',
+        name: 'nameCorrection',
+        type: 'string',
+        default: '',
+        placeholder: 'Name or Surname',
+        description: 'Enter the name or surname you want to validate. The service will also sanitize it by applying the correct capitalization.',
+        displayOptions: { show: { service: ['name_correction'] } },
+      },
+
+      // Name autocomplete
+      {
+        displayName: 'Name',
+        name: 'nameAutocomplete',
+        type: 'string',
+        default: '',
+        placeholder: 'Postal Address',
+        description: 'Autocomplete names or surnames from an initial input string.',
+        displayOptions: { show: { service: ['name_autocomplete'] } },
+      },
+
     ],
   };
 
@@ -123,6 +148,13 @@ export class Verificaremails {
         case 'address':
           term = this.getNodeParameter('address', i) as string;
           break;
+        case 'name_correction':
+          term = this.getNodeParameter('nameCorrection', i) as string;
+          break;
+        case 'name_autocomplete':
+          term = this.getNodeParameter('nameAutocomplete', i) as string;
+          break;
+
       }
 
       const response = await verificaremailsApiRequest.call(this, 'GET', term, apiKey, service);

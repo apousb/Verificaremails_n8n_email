@@ -5,6 +5,8 @@ export type VerificarService =
   | 'address'
   | 'phone_mnp'
   | 'phone_syntactic';
+  | 'name_correction'
+  | 'name_autocomplete';
 
 export async function verificaremailsApiRequest(
   method: string,
@@ -19,6 +21,8 @@ export async function verificaremailsApiRequest(
     address: 'address/validate/single',
     phone_mnp: 'phonemnp/validate/single',
     phone_syntactic: 'phonesyntactic/validate/single',
+    name_correction: 'fuzzysearch/validate/single',
+    name_autocomplete: 'namecomplete/validate/single',
   };
 
   const endpoint = endpointMap[service];
