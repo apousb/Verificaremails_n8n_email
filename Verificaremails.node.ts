@@ -43,7 +43,7 @@ export class Verificaremails {
         type: 'string',
         default: '',
         placeholder: 'International format: 34677934019 ',
-        description: 'Phone number to verify (international format, no spaces, no 0 or + symbol on the number)',
+        description: 'Validate phone numbers with HLR LookUp checks and worldwide coverage. (international format, no spaces, no 0 or + symbol on the number)',
         displayOptions: {
           show: {
             service: ['PhoneVerification'],
