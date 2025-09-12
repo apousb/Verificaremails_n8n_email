@@ -25,8 +25,7 @@ export class Verificaremails {
           { name: 'Postal Address validation', value: 'address' },
           { name: 'Name/Surname/Gender validation', value: 'name' },
           { name: 'Name/Surname correction', value: 'name_correction' },
-          { name: 'Name/surname autocomplete', value: 'name_autocomplete' },
-
+          { name: 'Name/surname autocomplete', value: 'name_autocomplete' }
         ],
         default: 'email',
         description: 'Select which verification service to use',
@@ -49,7 +48,7 @@ export class Verificaremails {
         name: 'phoneHlr',
         type: 'string',
         default: '',
-        placeholder: 'Phone Number international format: 34677934019',
+        placeholder: 'Phone Number',
         description: 'Validate phone numbers with HLR lookup (international format, no spaces).',
         displayOptions: { show: { service: ['phone_hlr'] } },
       },
@@ -58,7 +57,7 @@ export class Verificaremails {
         name: 'phoneMnp',
         type: 'string',
         default: '',
-        placeholder: 'Phone Number international format: 34677934019',
+        placeholder: 'Phone Number',
         description: 'Validate phone numbers with MNP checks and worldwide coverage (international format, no spaces, no 0 or + symbol on the number).',
         displayOptions: { show: { service: ['phone_mnp'] } },
       },
@@ -67,7 +66,7 @@ export class Verificaremails {
         name: 'phoneSyntactic',
         type: 'string',
         default: '',
-        placeholder: 'Phone Number international format: 34677934019',
+        placeholder: 'Phone Number',
         description: 'Validate phone numbers with international syntax checks and global coverage (international format, no spaces, no 0 or + symbol on the number).',
         displayOptions: { show: { service: ['phone_syntactic'] } },
       },
@@ -93,6 +92,7 @@ export class Verificaremails {
         description: 'Validate and correct postal addresses to provide a standardized format.',
         displayOptions: { show: { service: ['address'] } },
       },
+
       // Name correction
       {
         displayName: 'Name',
@@ -114,7 +114,6 @@ export class Verificaremails {
         description: 'Autocomplete names or surnames from an initial input string.',
         displayOptions: { show: { service: ['name_autocomplete'] } },
       },
-
     ],
   };
 
@@ -154,7 +153,6 @@ export class Verificaremails {
         case 'name_autocomplete':
           term = this.getNodeParameter('nameAutocomplete', i) as string;
           break;
-
       }
 
       const response = await verificaremailsApiRequest.call(this, 'GET', term, apiKey, service);

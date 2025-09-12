@@ -4,7 +4,7 @@ export type VerificarService =
   | 'name'
   | 'address'
   | 'phone_mnp'
-  | 'phone_syntactic';
+  | 'phone_syntactic'
   | 'name_correction'
   | 'name_autocomplete';
 
@@ -28,7 +28,7 @@ export async function verificaremailsApiRequest(
   const endpoint = endpointMap[service];
 
   const options = {
-    headers: { 'Accept': 'application/json' },
+    headers: { Accept: 'application/json' },
     method,
     uri: `https://dashboard.verificaremails.com/myapi/${endpoint}?auth-token=${apiKey}&term=${encodeURIComponent(term)}`,
     json: true,
