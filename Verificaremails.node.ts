@@ -14,7 +14,7 @@ export class Verificaremails {
     credentials: [{ name: 'verificaremailsApi', required: true }],
     properties: [
       {
-        displayName: 'Service',
+        displayName: 'Choose Service',
         name: 'service',
         type: 'options',
         options: [
@@ -38,12 +38,12 @@ export class Verificaremails {
         },
       },
       {
-        displayName: 'Phone',
+        displayName: 'Phone Number',
         name: 'phone',
         type: 'string',
         default: '',
-        placeholder: '34677934019',
-        description: 'Phone number to verify (international format, no spaces)',
+        placeholder: 'International format: 34677934019 ',
+        description: 'Phone number to verify (international format, no spaces, no 0 or + symbol on the number)',
         displayOptions: {
           show: {
             service: ['PhoneVerification'],
